@@ -59,7 +59,7 @@ let xAxis = d3.axisBottom(xScale).ticks(10).tickFormat(xScale.tickFormat(10, "")
 let yAxis = d3.axisLeft(yScale).ticks(10).tickFormat(xScale.tickFormat(10, ""))
 
 //svg & g
-const svg = d3.select("#chart1").append("svg").attr("width", width + margin.left + margin.right).attr("height", height + margin.top + margin.bottom);
+const svg = d3.select("#chart").append("svg").attr("width", width + margin.left + margin.right).attr("height", height + margin.top + margin.bottom);
 const g = svg.append("g").attr("transform", `translate(${margin.left},${margin.top})`);
 
 g.append("g")
@@ -159,7 +159,7 @@ gainG.append("text")
     .text(d => Math.round(d.gain * 10) / 10);
 
 const incomeG = legendG.selectAll("g.incomeG")
-    .data(legendData)
+    .data(legendData.reverse())
     .join("g")
     .attr("class", "incomeG");
 
